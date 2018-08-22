@@ -6,33 +6,45 @@ var images = [];
 images.push(new BusMallImage('bag.jpg'));
 images.push(new BusMallImage('banana.jpg'));
 images.push(new BusMallImage('boots.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-// ('chair.jpg');
-// ('cthulhu.jpg');
-// ('dragon.jpg');
-// ('pen.jpg');
-// ('scissors.jpg');
-// ('shark.jpg');
-// ('sweep.jpg');
-// ('unicorn.jpg');
-// ('usb.jpg');
-// ('water_can.jpg');
-// ('wine_glass.jpg');
+images.push(new BusMallImage('chair.jpg'));
+images.push(new BusMallImage('cthulhu.jpg'));
+images.push(new BusMallImage('dragon.jpg'));
+images.push(new BusMallImage('pen.jpg'));
+images.push(new BusMallImage('scissors.jpg'));
+images.push(new BusMallImage('shark.jpg'));
+images.push(new BusMallImage('sweep.jpg'));
+images.push(new BusMallImage('unicorn.jpg'));
+images.push(new BusMallImage('usb.jpg'));
+images.push(new BusMallImage('water_can.jpg'));
+images.push(new BusMallImage('wine_glass.jpg'));
 
     console.log(images);
 
-    function showThreeImages() {
-        var container = document.getElementById("img-container");
-        container.innerText = '';
-        var image = document.createElement('img');
-        image.setAttribute('src', './img/' + images[0].fileName);
-        container.appendChild(image);
-    }
+function showThreeImages() {
+    var container = document.getElementById("img-container");
+    container.innerText = '';
+    var image = document.createElement('img');
+    var index = generateRandom(0, images.length);
+    image.setAttribute('src', './img/' + images[index].fileName);
+    container.appendChild(image);
+    image = document.createElement('img');
+    index = generateRandom(0, images.length);
+    image.setAttribute('src', './img/' + images[index].fileName);
+    container.appendChild(image);
+    image = document.createElement('img');
+    index = generateRandom(0, images.length);
+    image.setAttribute('src', './img/' + images[index].fileName);
+    container.appendChild(image);
+    
+
+    container.appendChild(image);
+    console.log(index);
+    // console.log(showThreeImages(index));
+}
+
+function generateRandom(min, max) {
+    return Math.floor((Math.random() * (max - min)) + min);
+}
+
     showThreeImages();
 
