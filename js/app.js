@@ -26,14 +26,17 @@ function showThreeImages() {
     var image = document.createElement('img');
     var index = generateRandom(0, images.length);
     image.setAttribute('src', './img/' + images[index].fileName);
+    image.addEventListener('click', clickedPic);
     container.appendChild(image);
     image = document.createElement('img');
     index = generateRandom(0, images.length);
     image.setAttribute('src', './img/' + images[index].fileName);
+    image.addEventListener('click', clickedPic);
     container.appendChild(image);
     image = document.createElement('img');
     index = generateRandom(0, images.length);
     image.setAttribute('src', './img/' + images[index].fileName);
+    image.addEventListener('click', clickedPic)
     container.appendChild(image);
     
 
@@ -46,5 +49,9 @@ function generateRandom(min, max) {
     return Math.floor((Math.random() * (max - min)) + min);
 }
 
-    showThreeImages();
+function clickedPic(event) {
+        showThreeImages()
+    }
+
+    window.addEventListener('load', showThreeImages);
 
