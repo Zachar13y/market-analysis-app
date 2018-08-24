@@ -38,31 +38,34 @@ function showThreeImages() {
     index = generateRandom(0, images.length);
     image2.setAttribute('src', './img/' + images[index].fileName);
 
-    while (image.src === image2.src) {
-        console.log('Same');
+    while (image.src === image2.src) {   //////////While loop that compares the first two images//////////////
+        console.log('Images 1 and 2 were the same');
         var changeIndex = generateRandom(0, images.length);
         image2.src = ('./img/' + images[changeIndex].fileName);
     }
-
-
 
     image2.addEventListener('click', clickedPic);
     container.appendChild(image2);
     printedPics.push(image2);
 
 
-    image = document.createElement('img');
+    image3 = document.createElement('img');
     index = generateRandom(0, images.length);
-    image.setAttribute('src', './img/' + images[index].fileName);
-    image.addEventListener('click', clickedPic)
-    container.appendChild(image);
-    printedPics.push(image);
+    image3.setAttribute('src', './img/' + images[index].fileName);
+
+    while (image2.src === image3.src) {
+        console.log('Images 2 and 3 were the same');
+        var changepic = generateRandom(0, images.length);
+        image2.src = ('./img/' + images[changepic].fileName);
+    }
+
+    image3.addEventListener('click', clickedPic)
+    container.appendChild(image3);
+    printedPics.push(image3);
     
 
     
-    // var sorted_pics = printedPics.filter((item, index) => printedPics.indexOf((item) === index));
-
-    // printedPics(sorted_pics);
+  
 
     // console.log(sorted_pics);
 
