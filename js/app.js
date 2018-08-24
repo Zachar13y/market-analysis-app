@@ -8,17 +8,17 @@ images.push(new BusMallImage('banana.jpg'));
 images.push(new BusMallImage('boots.jpg'));
 images.push(new BusMallImage('chair.jpg'));
 images.push(new BusMallImage('cthulhu.jpg'));
-images.push(new BusMallImage('dragon.jpg'));
-images.push(new BusMallImage('pen.jpg'));
-images.push(new BusMallImage('scissors.jpg'));
-images.push(new BusMallImage('shark.jpg'));
-images.push(new BusMallImage('sweep.jpg'));
-images.push(new BusMallImage('unicorn.jpg'));
-images.push(new BusMallImage('usb.jpg'));
-images.push(new BusMallImage('water_can.jpg'));
-images.push(new BusMallImage('wine_glass.jpg'));
+// images.push(new BusMallImage('dragon.jpg'));
+// images.push(new BusMallImage('pen.jpg'));
+// images.push(new BusMallImage('scissors.jpg'));
+// images.push(new BusMallImage('shark.jpg'));
+// images.push(new BusMallImage('sweep.jpg'));
+// images.push(new BusMallImage('unicorn.jpg'));
+// images.push(new BusMallImage('usb.jpg'));
+// images.push(new BusMallImage('water_can.jpg'));
+// images.push(new BusMallImage('wine_glass.jpg'));
 
-console.log(images);
+// console.log(images);
 
 
 
@@ -34,12 +34,21 @@ function showThreeImages() {
     printedPics.push(image);
 
 
-    image = document.createElement('img');
+    var image2 = document.createElement('img');
     index = generateRandom(0, images.length);
-    image.setAttribute('src', './img/' + images[index].fileName);
-    image.addEventListener('click', clickedPic);
-    container.appendChild(image);
-    printedPics.push(image);
+    image2.setAttribute('src', './img/' + images[index].fileName);
+
+    while (image.src === image2.src) {
+        console.log('Same');
+        var changeIndex = generateRandom(0, images.length);
+        image2.src = ('./img/' + images[changeIndex].fileName);
+    }
+
+
+
+    image2.addEventListener('click', clickedPic);
+    container.appendChild(image2);
+    printedPics.push(image2);
 
 
     image = document.createElement('img');
@@ -50,9 +59,25 @@ function showThreeImages() {
     printedPics.push(image);
     
 
-    console.log(printedPics);
-    console.log(printedPics[0].currentSrc);
-    console.log(printedPics[0].src);
+    
+    // var sorted_pics = printedPics.filter((item, index) => printedPics.indexOf((item) === index));
+
+    // printedPics(sorted_pics);
+
+    // console.log(sorted_pics);
+
+
+
+    // console.log(printedPics);
+
+    // console.log(sorted_pics[0].src);
+    // console.log(sorted_pics[1].src);
+    // console.log(sorted_pics[2].src);
+
+    // console.log(printedPics[0].currentSrc);
+    // console.log(printedPics[0].src);
+
+
 
 }
 
