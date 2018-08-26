@@ -1,5 +1,7 @@
+var chart;
+
 window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
+	chart = new CanvasJS.Chart("chartContainer", {
 		title:{
 			text: "My First Chart in CanvasJS"              
 		},
@@ -7,13 +9,7 @@ window.onload = function () {
 		{
 			// Change type to "doughnut", "line", "splineArea", etc.
 			type: "column",
-			dataPoints: [
-				{ label: "apple",  y: 10  },
-				{ label: "orange", y: 15  },
-				{ label: "banana", y: 25  },
-				{ label: "mango",  y: 30  },
-				{ label: "grape",  y: 28  }
-			]
+			dataPoints: images
 		}
 		]
 	});
