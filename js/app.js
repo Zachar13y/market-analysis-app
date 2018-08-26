@@ -1,3 +1,5 @@
+
+
 var BusMallImage = function(fileName) {
     this.fileName = fileName;
 }
@@ -6,8 +8,8 @@ var images = [];
 images.push(new BusMallImage('bag.jpg'));
 images.push(new BusMallImage('banana.jpg'));
 images.push(new BusMallImage('boots.jpg'));
-images.push(new BusMallImage('chair.jpg'));
-images.push(new BusMallImage('cthulhu.jpg'));
+// images.push(new BusMallImage('chair.jpg'));
+// images.push(new BusMallImage('cthulhu.jpg'));
 // images.push(new BusMallImage('dragon.jpg'));
 // images.push(new BusMallImage('pen.jpg'));
 // images.push(new BusMallImage('scissors.jpg'));
@@ -25,11 +27,15 @@ function showThreeImages() {
     var image1 = document.createElement('img');
     var printedPics = [];
     var index = generateRandom(0, images.length);
+
     image1.setAttribute('src', './img/' + images[index].fileName);
+    var getPartOfString = image1.src.substring(0, getPartOfString.indexOf("mg"));
+    // getPartOfString = getPartOfString.substring(0, getPartOfString.indexOf('mg'));
+    console.log(getPartOfString);
+
     image1.addEventListener('click', clickedPic);
     container.appendChild(image1);
     printedPics.push(image1);
-
 
     var image2 = document.createElement('img');
     index = generateRandom(0, images.length);
@@ -60,15 +66,14 @@ function showThreeImages() {
     container.appendChild(image3);
     printedPics.push(image3);
 
-
-    while (image1 === image3) {
-        console.log('1 and 3 were the same!');
-        var changeEnds = generateRandom(0, images.length);
-        image3.src = ('./img/' + images[changeEnds].fileName);
-    }
+    
+    // while (image1 === image3) {
+    //     console.log('1 and 3 were the same!');
+    //     var changeEnds = generateRandom(0, images.length);
+    //     image3.src = ('./img/' + images[changeEnds].fileName);
+    // }
 
 }
-
 
 
 
@@ -76,10 +81,24 @@ function generateRandom(min, max) {
     return Math.floor((Math.random() * (max - min)) + min);
 }
 
+// function getNameOfPic(src) {
+//     return src.split('/')[8];
+// }
+// console.log(getNameOfPic);
+
+
 function clickedPic(event) {
-        showThreeImages()
-    }
+        console.log(event.target.src);
+        showThreeImages();
+    };
     
 
-
 window.addEventListener('load', showThreeImages);
+
+// var picVote = [];
+
+// for (var i=0; i<images.length; i++){
+// for (var imageI=0; imageI<images.length; imageI++){
+
+// }
+
