@@ -1,7 +1,3 @@
-
-
-
-
 var BusMallImage = function(fileName) {
     this.fileName = fileName;
     this.label = fileName.split('.')[0];
@@ -77,7 +73,7 @@ function getChartLabel(e) {
                 console.log('Images 1 and 2 were the same');
                 var changeIndex = generateRandom(0, images.length);
                 image2.src = ('./img/' + images[changeIndex].fileName);
-                image3.src = ('./img/' + images[changeIndex].fileName);
+                // image3.src = ('./img/' + images[changeIndex].fileName);
             };
         
             image2.addEventListener('click', getChartLabel);
