@@ -8,17 +8,17 @@ var images = [];
 images.push(new BusMallImage('bag.jpg'));
 images.push(new BusMallImage('banana.jpg'));
 images.push(new BusMallImage('boots.jpg'));
-images.push(new BusMallImage('chair.jpg'));
-images.push(new BusMallImage('cthulhu.jpg'));
-images.push(new BusMallImage('dragon.jpg'));
-images.push(new BusMallImage('pen.jpg'));
-images.push(new BusMallImage('scissors.jpg'));
-images.push(new BusMallImage('shark.jpg'));
-images.push(new BusMallImage('sweep.jpg'));
-images.push(new BusMallImage('unicorn.jpg'));
-images.push(new BusMallImage('usb.jpg'));
-images.push(new BusMallImage('water_can.jpg'));
-images.push(new BusMallImage('wine_glass.jpg'));
+// images.push(new BusMallImage('chair.jpg'));
+// images.push(new BusMallImage('cthulhu.jpg'));
+// images.push(new BusMallImage('dragon.jpg'));
+// images.push(new BusMallImage('pen.jpg'));
+// images.push(new BusMallImage('scissors.jpg'));
+// images.push(new BusMallImage('shark.jpg'));
+// images.push(new BusMallImage('sweep.jpg'));
+// images.push(new BusMallImage('unicorn.jpg'));
+// images.push(new BusMallImage('usb.jpg'));
+// images.push(new BusMallImage('water_can.jpg'));
+// images.push(new BusMallImage('wine_glass.jpg'));
 
 var rounds = 0;
 
@@ -41,12 +41,6 @@ function getChartLabel(e) {
     }
 }
 
-
-// function clickedPic(event) {
-//         console.log(event.target.src);
-//         // imageSrc();
-//         showThreeImages();
-//     };
     
     function showThreeImages() {
         var container = document.getElementById("img-container");
@@ -70,10 +64,10 @@ function getChartLabel(e) {
             image2.setAttribute('src', './img/' + images[index].fileName);
         
             while (image1.src === image2.src) {   //////////While loop that compares the first two images//////////////
-                console.log('Images 1 and 2 were the same');
+                console.log('Images 1, 2 or 3 were the same');
                 var changeIndex = generateRandom(0, images.length);
                 image2.src = ('./img/' + images[changeIndex].fileName);
-                // image3.src = ('./img/' + images[changeIndex].fileName);
+                image3.src = ('./img/' + images[changeIndex].fileName);
             };
         
             image2.addEventListener('click', getChartLabel);
@@ -88,7 +82,7 @@ function getChartLabel(e) {
             while (image2.src === image3.src) { //////////While loop that compares the second and third images//////////////
                 console.log('Images 2 and 3 were the same');
                 var changepic = generateRandom(0, images.length);
-                image2.src = ('./img/' + images[changepic].fileName);
+                image3.src = ('./img/' + images[changepic].fileName);
             };
             
             image3.addEventListener('click', getChartLabel);
