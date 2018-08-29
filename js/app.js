@@ -31,28 +31,38 @@ function getChartLabel(event) {
     var chartLabel = nameOfImg.split('.');
     // console.log(chartLabel[0]);
     showThreeImages();
+    function toLocalStorage(){
+        localStorage.setItem('images', JSON.stringify(images[i]));
+    
+    
+    }
+    
 
     for(var i = 0; i < images.length; i++) {
         if(nameOfImg == images[i].fileName) { // ask == vs ===
             images[i].y++;
             rounds++;
             chart.render();
+            toLocalStorage();
         }
     }
-    function toLocalStorage(){
-       
-        var localChartLabel = chartLabel;
-        var stringLocalChart = JSON.stringify(localChartLabel);
-        console.log( stringLocalChart);
-        var store = localStorage.getItem(localChartLabel);
-        var stringStore = JSON.stringify(store);
-        localStorage.setItem(stringStore, stringLocalChart);
+    // function toLocalStorage() {
         
+    //     var storedImage = "image";
+    //     var stringStoredImage = JSON.stringify(storedImage);
+
+    //     var localChartLabel = chartLabel;
+    //     var stringLocalChart = JSON.stringify(localChartLabel);
+    //     var store = localStorage.getItem(stringStoredImage, stringLocalChart);
+    //     // var storedImage= JSON.stringify(store);
+    //     localStorage.setItem(stringStoredImage, stringLocalChart);
 
 
-    }
-    toLocalStorage();
+
+    // }
+    // toLocalStorage();
 }  
+
 
     
     function showThreeImages() {
