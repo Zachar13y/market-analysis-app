@@ -23,6 +23,8 @@ images.push(new BusMallImage('boots.jpg', 0, "boots"));
 var rounds = 0;
 
 function getChartLabel(event) {
+    localStorage.setItem('images', JSON.stringify(images));
+
     var target = event.target.src;
     // console.log(target);
     var splitImgSrc = target.split('/');
@@ -31,6 +33,7 @@ function getChartLabel(event) {
     var chartLabel = nameOfImg.split('.');
     // console.log(chartLabel[0]);
     showThreeImages();
+
     
     
     
@@ -39,7 +42,8 @@ function getChartLabel(event) {
        if(nameOfImg == images[i].fileName) { // ask == vs ===
            images[i].y++;
            rounds++;
-           chart.render();
+           newChart();
+
        }
     }
     localStorage.setItem('images', JSON.stringify(images));
@@ -126,12 +130,12 @@ function getChartLabel(event) {
     }
 
     function checkLocal(){
-        var storeLocal = JSON.parse(localStorage.getItem(images));
-        var picture = [];
+        var storeLocal = JSON.parse(localStorage.getItem('images'));
         if(storeLocal != null){
+            images = [];
             for(var i = 0; i < storeLocal.length; i++){
-                var store = storeLocal[index];
-                picture.push(new BusMallImage(store.fileName, store.y, store.label));
+                var store = storeLocal[i];
+                images.push(new BusMallImage(store.fileName, store.y, store.label));
             }
         }
      
