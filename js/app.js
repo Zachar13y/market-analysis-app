@@ -1,13 +1,13 @@
-var BusMallImage = function(fileName) {
+var BusMallImage = function(fileName, y, label ) {
     this.fileName = fileName;
-    this.label = fileName.split('.')[0];
-    this.y = 0;
+    this.y = y;
+    this.label = label;
 }
 
 var images = []; 
-images.push(new BusMallImage('bag.jpg'));
-images.push(new BusMallImage('banana.jpg'));
-images.push(new BusMallImage('boots.jpg'));
+images.push(new BusMallImage('bag.jpg', 0, "bag"));
+images.push(new BusMallImage('banana.jpg', 0, "Banana"));
+images.push(new BusMallImage('boots.jpg', 0, "boots"));
 // images.push(new BusMallImage('chair.jpg'));
 // images.push(new BusMallImage('cthulhu.jpg'));
 // images.push(new BusMallImage('dragon.jpg'));
@@ -23,6 +23,8 @@ images.push(new BusMallImage('boots.jpg'));
 var rounds = 0;
 
 function getChartLabel(event) {
+    localStorage.setItem('images', JSON.stringify(images));
+
     var target = event.target.src;
     // console.log(target);
     var splitImgSrc = target.split('/');
@@ -31,37 +33,29 @@ function getChartLabel(event) {
     var chartLabel = nameOfImg.split('.');
     // console.log(chartLabel[0]);
     showThreeImages();
-    function toLocalStorage(){
-        localStorage.setItem('images', JSON.stringify(images[i]));
-    
-    
-    }
-    
 
+    
+    
+    
+    
     for(var i = 0; i < images.length; i++) {
-        if(nameOfImg == images[i].fileName) { // ask == vs ===
-            images[i].y++;
-            rounds++;
-            chart.render();
-            toLocalStorage();
-        }
+       if(nameOfImg == images[i].fileName) { // ask == vs ===
+           images[i].y++;
+           rounds++;
+           newChart();
+
+       }
     }
-    // function toLocalStorage() {
-        
-    //     var storedImage = "image";
-    //     var stringStoredImage = JSON.stringify(storedImage);
-
-    //     var localChartLabel = chartLabel;
-    //     var stringLocalChart = JSON.stringify(localChartLabel);
-    //     var store = localStorage.getItem(stringStoredImage, stringLocalChart);
-    //     // var storedImage= JSON.stringify(store);
-    //     localStorage.setItem(stringStoredImage, stringLocalChart);
+    localStorage.setItem('images', JSON.stringify(images));
 
 
+    
 
-    // }
-    // toLocalStorage();
+
+  
 }  
+
+
 
 
     
@@ -119,6 +113,10 @@ function getChartLabel(event) {
             button.setAttribute('onclick', 'location.reload()');
             button.innerText = "Reset The Game";
         }
+
+
+
+
         
         
 
@@ -130,12 +128,48 @@ function getChartLabel(event) {
     function generateRandom(min, max) {
         return Math.floor((Math.random() * (max - min)) + min);
     }
+
+    function checkLocal(){
+        var storeLocal = JSON.parse(localStorage.getItem('images'));
+        if(storeLocal != null){
+            images = [];
+            for(var i = 0; i < storeLocal.length; i++){
+                var store = storeLocal[i];
+                images.push(new BusMallImage(store.fileName, store.y, store.label));
+            }
+        }
+     
+
+    }
     
 
         
+     window.addEventListener('load', checkLocal);
      window.addEventListener('load', showThreeImages);
-        
-  
+    
 
+
+     // for(var i = 0; i < images.length; i++) {
+    //     if(nameOfImg == images[i].fileName) { // ask == vs ===
+    //         images[i].y++;
+    //         rounds++;
+    //         chart.render();
+    //         toLocalStorage();
+    //     }
+    // }
+    // function toLocalStorage() {
+        
+    //     var storedImage = "image";
+    //     var stringStoredImage = JSON.stringify(storedImage);
+
+    //     var localChartLabel = chartLabel;
+    //     var stringLocalChart = JSON.stringify(localChartLabel);
+    //     var store = localStorage.getItem(stringStoredImage, stringLocalChart);
+    //     // var storedImage= JSON.stringify(store);
+    //     localStorage.setItem(stringStoredImage, stringLocalChart);
+
+  
+  // }
+    // toLocalStorage();
 
 
