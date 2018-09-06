@@ -1,5 +1,3 @@
-// var chart;
-
 var newChart = function () {
 	chart = new CanvasJS.Chart("chartContainer", {
 		title:{
@@ -7,7 +5,6 @@ var newChart = function () {
 		},
 		data: [              
 		{
-			// Change type to "doughnut", "line", "splineArea", etc.
 			type: "column",
 			dataPoints: images
 		}

@@ -26,7 +26,6 @@ function getChartLabel(event) {
     var target = event.target.src;
     var splitImgSrc = target.split('/');
     var nameOfImg = splitImgSrc[splitImgSrc.length -1];
-    var chartLabel = nameOfImg.split('.');
     showThreeImages();
     
     for(var i = 0; i < images.length; i++) {
